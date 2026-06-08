@@ -1,84 +1,19 @@
 fileFormatVersion: 2
-guid: 6835802e9f903e94c8c18c0f4f303172
+guid: 5bf4a643a41b8794bab52817bd999105
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects:
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: blinn3
-    second: {fileID: 2100000, guid: 23bb1d8647b2b1b44a14ff8fbb6bb2df, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: blinn4
-    second: {fileID: 2100000, guid: 495b694fd9866c143a4516a33cae9c25, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: blinn5
-    second: {fileID: 2100000, guid: 933141f4c50770f4ebc7b0c2ff5fbf24, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: colorcito
-    second: {fileID: 2100000, guid: d9e464264e2dc684d9c72ad90282d33a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert34
-    second: {fileID: 2100000, guid: 1d38272194d64d24fabe318055110021, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert35
-    second: {fileID: 2100000, guid: d01147fb0b7e7f345a65fa3abd9cc014, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert43
-    second: {fileID: 2100000, guid: 5f83d05338469db45b59674ce1f8fee8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert44
-    second: {fileID: 2100000, guid: 5223b282b54e12e429b2f4920dfe1d61, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert45
-    second: {fileID: 2100000, guid: 6eeeeeea3a4d1564d8c394d5b548711e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert46
-    second: {fileID: 2100000, guid: 9c5d06bd0cd246348956087d5eadf1aa, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert47
-    second: {fileID: 2100000, guid: 3a4051e8335ec3340a7b5024953e0d3b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert48
-    second: {fileID: 2100000, guid: 10597ebe435355c4290320cb3471001f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: standardSurface3
-    second: {fileID: 2100000, guid: 77cdabf84ec80f64399745101031f71e, type: 2}
+      name: madera
+    second: {fileID: 2800000, guid: 6a41401bab63b554b9591090d28f2682, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: fondonoche
-    second: {fileID: 2800000, guid: f371814baac39fb48bfdff5d8f5a7b80, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: pisochibi
-    second: {fileID: 2800000, guid: cbcb0b9f12ca5684095039df06ddedcc, type: 3}
+      name: pared
+    second: {fileID: 2800000, guid: 129f12813212e6c41a7dc3cfbc8e5717, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
