@@ -3,7 +3,17 @@ guid: 59bbdd7ae21ded24281ac3592f7c47ea
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Head_base_color
+    second: {fileID: 2800000, guid: e39e796b2b88dbb42a120cbffc83862b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Traje
+    second: {fileID: 2800000, guid: 1128a75295febea4a8e95718f14a41f7, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
