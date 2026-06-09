@@ -3,7 +3,12 @@ guid: 50fa0bd60d4f29144ba854a45e0581b5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: hinata_Chibi_front
+    second: {fileID: 2800000, guid: 7c8355ed2a1c4e44299a4beaf058c3bd, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

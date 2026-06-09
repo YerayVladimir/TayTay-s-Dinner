@@ -3,7 +3,12 @@ guid: 5ccdf553b8ae0ab4eb22e624ba6c9009
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Zoro+Roronoa_basecolor
+    second: {fileID: 2800000, guid: df9fc326a82d08e4fbef72198741ac7d, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
