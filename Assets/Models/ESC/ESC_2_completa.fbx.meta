@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a690a35f61246e04d8084bbec545d286
+guid: 5bf4a643a41b8794bab52817bd999105
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Head_base_color
-    second: {fileID: 2800000, guid: e39e796b2b88dbb42a120cbffc83862b, type: 3}
+      name: madera
+    second: {fileID: 2800000, guid: 6a41401bab63b554b9591090d28f2682, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Traje
-    second: {fileID: 2800000, guid: 1128a75295febea4a8e95718f14a41f7, type: 3}
+      name: pared
+    second: {fileID: 2800000, guid: 129f12813212e6c41a7dc3cfbc8e5717, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

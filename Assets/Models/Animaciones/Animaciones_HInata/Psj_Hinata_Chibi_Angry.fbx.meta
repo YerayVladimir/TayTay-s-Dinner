@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a690a35f61246e04d8084bbec545d286
+guid: 50fa0bd60d4f29144ba854a45e0581b5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Head_base_color
-    second: {fileID: 2800000, guid: e39e796b2b88dbb42a120cbffc83862b, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Traje
-    second: {fileID: 2800000, guid: 1128a75295febea4a8e95718f14a41f7, type: 3}
+      name: hinata_Chibi_front
+    second: {fileID: 2800000, guid: 7c8355ed2a1c4e44299a4beaf058c3bd, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
