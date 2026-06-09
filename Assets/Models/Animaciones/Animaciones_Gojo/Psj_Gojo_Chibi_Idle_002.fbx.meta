@@ -3,7 +3,22 @@ guid: da36884515fcb1445bf1acb5e09402c6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert4
+    second: {fileID: 2100000, guid: e3e26f7263786c148a1251c12042c57d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__lambert4
+    second: {fileID: 2100000, guid: 53378a4fec52fe04e8710bd5ea546cd9, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: front_gojo
+    second: {fileID: 2800000, guid: 2368d0c8102de9e45972e23be8ecac29, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

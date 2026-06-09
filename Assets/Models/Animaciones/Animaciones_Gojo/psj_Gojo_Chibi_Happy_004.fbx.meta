@@ -3,7 +3,12 @@ guid: 365c85276fba5254f90d5c716cd311eb
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: front_gojo
+    second: {fileID: 2800000, guid: 19eb696b1fc7e9543a58e52acad5702b, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
