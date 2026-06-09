@@ -1,0 +1,508 @@
+fileFormatVersion: 2
+guid: 88a43dd6c918f1748bb52a753d744088
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Zoro_Roronoa_con_base_color:Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Zoro_Roronoa_con_base_color:Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: PSJ_Zoro Roronoa Chibi(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:tripo_node_f551edc0_cb6b_4e1d_8256_342e63cf3f46
+      parentName: PSJ_Zoro Roronoa Chibi(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:Hips
+      parentName: PSJ_Zoro Roronoa Chibi(Clone)
+      position: {x: 0.000001173031, y: 0.024922954, z: 0.004641855}
+      rotation: {x: -0.00000006930796, y: 0.0000049633254, z: -0.00002657021, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:Spine
+      parentName: Zoro_Roronoa_con_base_color:Hips
+      position: {x: -0, y: 0.0036847328, z: -0.0017958622}
+      rotation: {x: -0.2248118, y: -0.000010809561, z: 0.000024774261, w: 0.97440225}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:Spine1
+      parentName: Zoro_Roronoa_con_base_color:Spine
+      position: {x: -0, y: 0.0047822497, z: 1.1956168e-10}
+      rotation: {x: 2.004455e-25, y: -3.3716993e-13, z: 5.9449396e-13, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:Spine2
+      parentName: Zoro_Roronoa_con_base_color:Spine1
+      position: {x: -0, y: 0.005465425, z: -1.6883647e-11}
+      rotation: {x: 0, y: -5.04871e-29, z: 5.04871e-29, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:Neck
+      parentName: Zoro_Roronoa_con_base_color:Spine2
+      position: {x: -0, y: 0.0061486065, z: 0.0000000031183507}
+      rotation: {x: 0.22481215, y: 2.6411234e-20, z: 6.0934995e-21, w: 0.9744021}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:Head
+      parentName: Zoro_Roronoa_con_base_color:Neck
+      position: {x: -0, y: 0.008340917, z: -0.00068996847}
+      rotation: {x: 0, y: -0, z: -7.3659406e-29, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:HeadTop_End
+      parentName: Zoro_Roronoa_con_base_color:Head
+      position: {x: -0, y: 0.033004418, z: -0.002730156}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:RightShoulder
+      parentName: Zoro_Roronoa_con_base_color:Spine2
+      position: {x: 0.0033642766, y: 0.0045599146, z: -0.00081234105}
+      rotation: {x: -0.50074804, y: -0.46535468, z: 0.57995033, w: -0.44311857}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:RightArm
+      parentName: Zoro_Roronoa_con_base_color:RightShoulder
+      position: {x: 6.427525e-12, y: 0.006861137, z: 7.903829e-12}
+      rotation: {x: -0.095995195, y: 0.27405104, z: 0.027799252, w: 0.95650834}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:RightForeArm
+      parentName: Zoro_Roronoa_con_base_color:RightArm
+      position: {x: 2.8654917e-11, y: 0.010320384, z: -1.8302924e-10}
+      rotation: {x: 0.00000022914038, y: 0.008418653, z: 0.0000000023827662, w: 0.9999646}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:RightHand
+      parentName: Zoro_Roronoa_con_base_color:RightForeArm
+      position: {x: -3.6577796e-11, y: 0.010133467, z: -2.0404838e-11}
+      rotation: {x: -0.00000005231369, y: -0.0010119366, z: -0.00000023788722, w: 0.9999995}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:RightHandIndex1
+      parentName: Zoro_Roronoa_con_base_color:RightHand
+      position: {x: 5.6267994e-12, y: 0.0006972525, z: -1.06070704e-13}
+      rotation: {x: 0.000000005386028, y: 0.0008700328, z: -0.00000009917287, w: 0.99999964}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:RightHandIndex2
+      parentName: Zoro_Roronoa_con_base_color:RightHandIndex1
+      position: {x: 5.7482766e-14, y: 0.0011626722, z: -2.5419953e-11}
+      rotation: {x: -0.101696305, y: -0.000000037860353, z: -0.14828628, w: 0.9837017}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:RightHandIndex3
+      parentName: Zoro_Roronoa_con_base_color:RightHandIndex2
+      position: {x: -0.0002964661, y: 0.00094897597, z: 0.00020316058}
+      rotation: {x: 0.075761475, y: 0.00022140716, z: 0.109434776, w: 0.9911025}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:RightHandIndex4
+      parentName: Zoro_Roronoa_con_base_color:RightHandIndex3
+      position: {x: -0.00002447643, y: 0.00030449548, z: 0.000015853315}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:LeftShoulder
+      parentName: Zoro_Roronoa_con_base_color:Spine2
+      position: {x: -0.0033642766, y: 0.0045299456, z: -0.000750851}
+      rotation: {x: 0.50876683, y: -0.4595682, z: 0.5767145, w: 0.44424513}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:LeftArm
+      parentName: Zoro_Roronoa_con_base_color:LeftShoulder
+      position: {x: -6.051848e-13, y: 0.006861137, z: 1.1138348e-11}
+      rotation: {x: -0.098738804, y: -0.29615748, z: -0.0153281735, w: 0.9498981}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:LeftForeArm
+      parentName: Zoro_Roronoa_con_base_color:LeftArm
+      position: {x: -4.5264965e-11, y: 0.01033249, z: -1.8438183e-12}
+      rotation: {x: -0.000000074749885, y: -0.008330003, z: 0.00000021102636, w: 0.9999653}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:LeftHand
+      parentName: Zoro_Roronoa_con_base_color:LeftForeArm
+      position: {x: 2.6879334e-11, y: 0.01011405, z: 3.5803995e-11}
+      rotation: {x: 0.00000026058734, y: -0.00006365265, z: 0.00000029881258, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:LeftHandIndex1
+      parentName: Zoro_Roronoa_con_base_color:LeftHand
+      position: {x: 1.5609624e-12, y: 0.0009901619, z: -1.4322454e-12}
+      rotation: {x: 0.0000001794197, y: -0.0035705208, z: 0.00000037584326, w: 0.9999936}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:LeftHandIndex2
+      parentName: Zoro_Roronoa_con_base_color:LeftHandIndex1
+      position: {x: 7.8027185e-12, y: 0.0010111486, z: -3.3178991e-12}
+      rotation: {x: -0.14767435, y: 0.000000023913897, z: -0.004873537, w: 0.98902404}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:LeftHandIndex3
+      parentName: Zoro_Roronoa_con_base_color:LeftHandIndex2
+      position: {x: -0.000010030309, y: 0.000991829, z: 0.00030297317}
+      rotation: {x: 0.031199435, y: 0.020536015, z: -0.066203766, w: 0.9971068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:LeftHandIndex4
+      parentName: Zoro_Roronoa_con_base_color:LeftHandIndex3
+      position: {x: -0.000082124905, y: 0.000534179, z: 0.00012743915}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:RightUpLeg
+      parentName: Zoro_Roronoa_con_base_color:Hips
+      position: {x: 0.008818547, y: -0.0020470738, z: -0.005025934}
+      rotation: {x: 0.005345912, y: 0.06708271, z: 0.9976509, w: -0.012806924}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:RightLeg
+      parentName: Zoro_Roronoa_con_base_color:RightUpLeg
+      position: {x: -0, y: 0.011804983, z: 3.7146397e-11}
+      rotation: {x: -0.21590099, y: -0.0017017476, z: -0.03166998, w: 0.97590005}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:RightFoot
+      parentName: Zoro_Roronoa_con_base_color:RightLeg
+      position: {x: 2.4255499e-11, y: 0.007293331, z: -2.3257295e-11}
+      rotation: {x: 0.5920763, y: -0.09119618, z: 0.021356605, w: 0.8004204}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:RightToeBase
+      parentName: Zoro_Roronoa_con_base_color:RightFoot
+      position: {x: 5.278733e-11, y: 0.0074109766, z: 3.842198e-10}
+      rotation: {x: 0.30082148, y: -0.012236666, z: 0.0038602, w: 0.95359415}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:RightToe_End
+      parentName: Zoro_Roronoa_con_base_color:RightToeBase
+      position: {x: 1.4227924e-11, y: 0.0032334724, z: -1.5652865e-12}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:LeftUpLeg
+      parentName: Zoro_Roronoa_con_base_color:Hips
+      position: {x: -0.008818547, y: -0.0020470738, z: -0.0049803616}
+      rotation: {x: -0.0053147054, y: 0.06582835, z: 0.9977339, w: 0.012866066}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:LeftLeg
+      parentName: Zoro_Roronoa_con_base_color:LeftUpLeg
+      position: {x: -0, y: 0.011800691, z: 3.757492e-11}
+      rotation: {x: -0.21572697, y: 0.0015951891, z: 0.031806722, w: 0.97593427}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:LeftFoot
+      parentName: Zoro_Roronoa_con_base_color:LeftLeg
+      position: {x: 1.7175428e-11, y: 0.0072986213, z: -3.8973234e-12}
+      rotation: {x: 0.5741957, y: 0.09990289, z: -0.023724325, w: 0.81225365}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:LeftToeBase
+      parentName: Zoro_Roronoa_con_base_color:LeftFoot
+      position: {x: -1.6728157e-11, y: 0.00695874, z: -1.0571579e-11}
+      rotation: {x: 0.32188132, y: -0.0061416123, z: 0.002088039, w: 0.9467578}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zoro_Roronoa_con_base_color:LeftToe_End
+      parentName: Zoro_Roronoa_con_base_color:LeftToeBase
+      position: {x: 1.8939943e-11, y: 0.003296162, z: 1.427041e-12}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 490784cc2767aec45b5b3a623bbd7b8e, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
