@@ -5,13 +5,13 @@ public class HamburguesaActual : MonoBehaviour
 {
     public List<int> ingredientes = new List<int>();
 
-    public void agregarIngrediente(int id)
+    public void AgregarIngrediente(int id)
     {
         ingredientes.Add(id);
         Debug.Log("Agregado: " + id);
     }
 
-    public void limpiarHamburguesa()
+    public void LimpiarHamburguesa()
     {
         ingredientes.Clear();
         Debug.Log("Hamburguesa limpia");
