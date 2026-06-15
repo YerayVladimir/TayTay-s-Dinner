@@ -48,9 +48,7 @@ public class AgarrarObjetos : MonoBehaviour
             out hit,
             distanciaMaxima))
         {
-            ObjetoMovible objeto =
-                hit.collider.GetComponent
-                <ObjetoMovible>();
+            ObjetoMovible objeto = hit.collider.GetComponentInParent<ObjetoMovible>();
 
             if (objeto == null)
                 return;

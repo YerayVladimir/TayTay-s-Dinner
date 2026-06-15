@@ -25,21 +25,44 @@ public class Ingrediente : MonoBehaviour
         Quemado
     }
 
+    [Header("Datos del ingrediente")]
     public TipoIngrediente tipo;
-
     public EstadoCoccion estado = EstadoCoccion.NoAplica;
 
+    [Header("Cocción")]
     public bool requiereCoccion;
-
-    [HideInInspector]
-    public bool cocinandose = false;
-
-    [HideInInspector]
-    public float tiempoCoccion = 0f;
-
     public float tiempoParaCocinar = 8f;
-
     public float tiempoParaQuemar = 14f;
+
+    [Header("Modelos 3D por estado")]
+    public GameObject modeloNormal;
+    public GameObject modeloCrudo;
+    public GameObject modeloCocinado;
+    public GameObject modeloQuemado;
+
+    [Header("IDs para el pedido / hamburguesa")]
+    public int idNormal = -1;
+    public int idCrudo = -1;
+    public int idCocinado = -1;
+    public int idQuemado = -1;
+
+    [HideInInspector] public bool cocinandose = false;
+    [HideInInspector] public float tiempoCoccion = 0f;
+    private GameObject modeloActual;
+
+    private void Start()
+    {
+        if (requiereCoccion)
+        {
+            estado = EstadoCoccion.Crudo;
+        }
+        else
+        {
+            estado = EstadoCoccion.NoAplica;
+        }
+
+        ActualizarModelo();
+    }
 
     private void Update()
     {
@@ -48,26 +71,155 @@ public class Ingrediente : MonoBehaviour
 
         tiempoCoccion += Time.deltaTime;
 
+        RevisarEstadoCoccion();
+    }
+
+    private void RevisarEstadoCoccion()
+    {
+        if (!requiereCoccion)
+            return;
+
         if (tiempoCoccion >= tiempoParaQuemar)
         {
-            estado = EstadoCoccion.Quemado;
+            CambiarEstado(EstadoCoccion.Quemado);
         }
         else if (tiempoCoccion >= tiempoParaCocinar)
         {
-            estado = EstadoCoccion.Cocinado;
+            CambiarEstado(EstadoCoccion.Cocinado);
         }
         else
         {
-            estado = EstadoCoccion.Crudo;
+            CambiarEstado(EstadoCoccion.Crudo);
         }
+    }
+
+    private void CambiarEstado(EstadoCoccion nuevoEstado)
+    {
+        if (estado == nuevoEstado)
+            return;
+
+        estado = nuevoEstado;
+        ActualizarModelo();
+
+        if (estado == EstadoCoccion.Cocinado)
+        {
+            Debug.Log(
+                name +
+                " ya está cocinado.");
+        }
+        else if (estado == EstadoCoccion.Quemado)
+        {
+            Debug.Log(
+                name +
+                " se quemó.");
+        }
+    }
+    private GameObject ObtenerModeloSegunEstado()
+    {
+        switch (estado)
+        {
+            case EstadoCoccion.NoAplica:
+                return modeloNormal;
+
+            case EstadoCoccion.Crudo:
+                return modeloCrudo;
+
+            case EstadoCoccion.Cocinado:
+                return modeloCocinado;
+
+            case EstadoCoccion.Quemado:
+                return modeloQuemado;
+
+            default:
+                return null;
+        }
+    }
+
+    private void ActualizarModelo()
+    {
+        GameObject modeloNuevo = ObtenerModeloSegunEstado();
+
+        if (modeloNuevo == null)
+            return;
+
+        if (modeloActual != null &&
+            modeloActual != modeloNuevo)
+        {
+            modeloNuevo.transform.position =
+                modeloActual.transform.position;
+
+            modeloNuevo.transform.rotation =
+                modeloActual.transform.rotation;
+
+            // Solo se debe de activar esto si quieres que también copie el tamaño.
+            // modeloNuevo.transform.localScale = modeloActual.transform.localScale;
+        }
+
+        if (modeloNormal != null)
+            modeloNormal.SetActive(false);
+
+        if (modeloCrudo != null)
+            modeloCrudo.SetActive(false);
+
+        if (modeloCocinado != null)
+            modeloCocinado.SetActive(false);
+
+        if (modeloQuemado != null)
+            modeloQuemado.SetActive(false);
+
+        modeloNuevo.SetActive(true);
+
+        modeloActual = modeloNuevo;
+    }
+
+    public void IniciarCoccion()
+    {
+        if (!requiereCoccion)
+            return;
+
+        cocinandose = true;
+    }
+
+    public void DetenerCoccion()
+    {
+        cocinandose = false;
     }
 
     public void Reiniciar()
     {
-        tiempoCoccion = 0;
+        tiempoCoccion = 0f;
         cocinandose = false;
 
         if (requiereCoccion)
+        {
             estado = EstadoCoccion.Crudo;
+        }
+        else
+        {
+            estado = EstadoCoccion.NoAplica;
+        }
+
+        ActualizarModelo();
+    }
+
+    public int ObtenerIDActual()
+    {
+        switch (estado)
+        {
+            case EstadoCoccion.NoAplica:
+                return idNormal;
+
+            case EstadoCoccion.Crudo:
+                return idCrudo;
+
+            case EstadoCoccion.Cocinado:
+                return idCocinado;
+
+            case EstadoCoccion.Quemado:
+                return idQuemado;
+
+            default:
+                return -1;
+        }
     }
 }
