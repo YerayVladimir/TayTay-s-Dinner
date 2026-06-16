@@ -11,22 +11,26 @@ public class Mesas : MonoBehaviour
 
     public Eventos eventos;
 
+    private bool pedidoRecibido = false;
+
     private void OnTriggerEnter(Collider other)
     {
+        if (pedidoRecibido)
+            return;
+
         if (!ocupada)
             return;
 
         if (clienteActual == null)
             return;
 
-        if (!other.CompareTag("Hamburguesa"))
-            return;
-
         HamburguesaActual hamburguesa =
-            other.GetComponent<HamburguesaActual>();
+            other.GetComponentInParent<HamburguesaActual>();
 
         if (hamburguesa == null)
             return;
+
+        pedidoRecibido = true;
 
         bool pedidoCorrecto =
             CompararPedido(
@@ -57,7 +61,7 @@ public class Mesas : MonoBehaviour
             Debug.Log("Pedido incorrecto");
         }
 
-        Destroy(other.gameObject);
+        Destroy(hamburguesa.gameObject);
 
         LiberarMesa();
     }
@@ -80,7 +84,9 @@ public class Mesas : MonoBehaviour
         {
             if (pedido[i] !=
                 hamburguesa[i])
+            {
                 return false;
+            }
         }
 
         return true;
@@ -111,5 +117,6 @@ public class Mesas : MonoBehaviour
     {
         ocupada = false;
         clienteActual = null;
+        pedidoRecibido = false;
     }
 }
