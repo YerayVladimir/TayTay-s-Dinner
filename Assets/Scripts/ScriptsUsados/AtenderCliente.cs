@@ -38,6 +38,17 @@ public class AtenderCliente : MonoBehaviour
             return;
         }
 
+        if (cliente.yaAtendido)
+        {
+            Debug.LogWarning("Este cliente ya fue atendido.");
+            return;
+        }
+        if (!eventos.PuedeCrearOtroPedido())
+        {
+            Debug.LogWarning("Ya hay 3 pedidos activos. Entrega uno antes de atender otro cliente.");
+            return;
+        }
+
         Mesas mesa = GestorClientes.instancia.ObtenerMesaLibre();
 
         if (mesa == null)
@@ -45,6 +56,8 @@ public class AtenderCliente : MonoBehaviour
             Debug.LogWarning("No hay mesas libres.");
             return;
         }
+
+        cliente.yaAtendido = true;
 
         cliente.pedido = eventos.GenerarPedido();
 
@@ -61,8 +74,11 @@ public class AtenderCliente : MonoBehaviour
         GestorClientes.instancia.fila.Remove(cliente);
         GestorClientes.instancia.ActualizarFila();
 
-        eventos.MostrarPedido(cliente.pedido);
+        eventos.MostrarPedidoDeCliente(cliente, cliente.pedido);
 
-        Debug.Log("Cliente atendido con tecla R. Pedido: " + string.Join(", ", cliente.pedido));
+        Debug.Log(
+            "Cliente atendido. Pedido: " +
+            string.Join(", ", cliente.pedido)
+        );
     }
 }

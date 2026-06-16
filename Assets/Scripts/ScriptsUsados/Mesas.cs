@@ -35,30 +35,32 @@ public class Mesas : MonoBehaviour
         bool pedidoCorrecto =
             CompararPedido(
                 clienteActual.pedido,
-                hamburguesa.ingredientes);
+                hamburguesa.ingredientes
+            );
 
         if (pedidoCorrecto)
         {
             if (eventos != null)
             {
-                eventos.AgregarDinero(
-                    CalcularPago());
+                eventos.AgregarDinero(CalcularPago());
+                eventos.QuitarPedidoDeCliente(clienteActual);
             }
 
             clienteActual.PedidoEntregado();
 
-            Debug.Log("Pedido correcto");
+            Debug.Log("Pedido correcto. Se agregó dinero.");
         }
         else
         {
             if (eventos != null)
             {
                 eventos.QuitarDinero(5);
+                eventos.QuitarPedidoDeCliente(clienteActual);
             }
 
             clienteActual.IrASalida();
 
-            Debug.Log("Pedido incorrecto");
+            Debug.Log("Pedido incorrecto. Se quitó dinero.");
         }
 
         Destroy(hamburguesa.gameObject);
@@ -70,20 +72,15 @@ public class Mesas : MonoBehaviour
         List<int> pedido,
         List<int> hamburguesa)
     {
-        if (pedido == null ||
-            hamburguesa == null)
+        if (pedido == null || hamburguesa == null)
             return false;
 
-        if (pedido.Count !=
-            hamburguesa.Count)
+        if (pedido.Count != hamburguesa.Count)
             return false;
 
-        for (int i = 0;
-             i < pedido.Count;
-             i++)
+        for (int i = 0; i < pedido.Count; i++)
         {
-            if (pedido[i] !=
-                hamburguesa[i])
+            if (pedido[i] != hamburguesa[i])
             {
                 return false;
             }
@@ -94,6 +91,9 @@ public class Mesas : MonoBehaviour
 
     int CalcularPago()
     {
+        if (clienteActual == null)
+            return 0;
+
         float tiempo =
             clienteActual.pacienciaMaxima -
             clienteActual.pacienciaActual;

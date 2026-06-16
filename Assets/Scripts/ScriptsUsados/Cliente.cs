@@ -27,6 +27,9 @@ public class Cliente : MonoBehaviour
     public List<int> pedido =
         new List<int>();
 
+    [Header("Control de atención")]
+    public bool yaAtendido = false;
+
     [Header("Mesa")]
     public Mesas mesaAsignada;
 

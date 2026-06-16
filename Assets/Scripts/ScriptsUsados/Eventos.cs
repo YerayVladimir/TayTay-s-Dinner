@@ -12,6 +12,9 @@ public class Eventos : MonoBehaviour
     public GameObject notaObj;
     public GameObject[] palomitas;
 
+    [Header("UI de varios pedidos")]
+    public PedidoUIManager pedidoUIManager;
+
     [Header("Texto simple del pedido")]
     public TextMeshProUGUI textoPedido;
 
@@ -133,6 +136,52 @@ public class Eventos : MonoBehaviour
         MostrarNotaVisual();
 
         MostrarPedidoTexto(pedido);
+    }
+    public bool PuedeCrearOtroPedido()
+    {
+        if (pedidoUIManager == null)
+            return true;
+
+        return pedidoUIManager.PuedeCrearPedido();
+    }
+    public void MostrarPedidoDeCliente(Cliente cliente, List<int> pedido)
+    {
+        if (cliente == null)
+        {
+            Debug.LogError("No se puede mostrar pedido porque el cliente es null.");
+            return;
+        }
+
+        if (pedido == null)
+        {
+            Debug.LogError("No se puede mostrar pedido porque la lista de pedido es null.");
+            return;
+        }
+
+        if (pedidoUIManager != null)
+        {
+            pedidoUIManager.CrearPedidoUI(cliente, pedido, this);
+        }
+        else
+        {
+            Debug.LogWarning("No hay PedidoUIManager asignado. Se usará la UI vieja.");
+            MostrarPedido(pedido);
+        }
+    }
+
+    public void QuitarPedidoDeCliente(Cliente cliente)
+    {
+        if (cliente == null)
+            return;
+
+        if (pedidoUIManager != null)
+        {
+            pedidoUIManager.QuitarPedidoUI(cliente);
+        }
+        else
+        {
+            LimpiarPedidoActual();
+        }
     }
 
     private void MostrarIconosPedido(List<int> pedido)
