@@ -32,6 +32,14 @@ public class ObjectGrabbable : MonoBehaviour
             return;
         }
 
+        IngredienteRespawnable respawnable =
+            GetComponent<IngredienteRespawnable>();
+
+        if (respawnable != null)
+        {
+            respawnable.AvisarQueFueTomado();
+        }
+
         grabPointTransform = nuevoGrabPoint;
 
         if (objectRigidbody != null)
