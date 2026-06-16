@@ -20,7 +20,7 @@ public class GestorClientes : MonoBehaviour
     public Mesas[] mesas;
 
     [Header("Configuración")]
-    public float tiempoEntreClientes = 10f;
+    public float tiempoEntreClientes = 30f;
 
     [Header("Clientes en fila")]
     public List<Cliente> fila = new List<Cliente>();
