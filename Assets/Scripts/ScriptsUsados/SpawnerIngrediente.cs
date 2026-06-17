@@ -2,86 +2,73 @@ using UnityEngine;
 
 public class SpawnerIngrediente : MonoBehaviour
 {
-    [Header("Prefab del ingrediente")]
+    [Header("Prefab de este ingrediente")]
+    [Tooltip("Arrastra aquí el mismo prefab de este objeto.")]
     public GameObject prefabIngrediente;
 
-    [Header("Punto donde aparece")]
-    public Transform puntoSpawn;
+    [Header("Respawn")]
+    public float tiempoRespawn = 1.5f;
 
-    [Header("Configuración")]
-    public float tiempoRespawn = 0.5f;
-    public bool spawnearAlIniciar = true;
+    [Tooltip("Desactiva para ingredientes bloqueados (compra/desbloqueo).")]
+    public bool activo = true;
 
-    private GameObject ingredienteActual;
-    private bool esperandoRespawn = false;
+    // Los clones reciben estos valores del spawner que los creó,
+    // antes de que Start() se ejecute, así nunca se pierden.
+    [HideInInspector] public Vector3 posicionOriginal;
+    [HideInInspector] public Quaternion rotacionOriginal;
+    [HideInInspector] public Vector3 escalaOriginal;
+    [HideInInspector] public bool inicializadoExternamente = false;
 
     private void Start()
     {
-        if (spawnearAlIniciar)
+        // Los objetos originales de la escena se inicializan solos.
+        // Los clones ya traen los valores asignados por el spawner padre.
+        if (!inicializadoExternamente)
         {
-            Spawn();
+            posicionOriginal = transform.position;
+            rotacionOriginal = transform.rotation;
+            escalaOriginal = transform.localScale;
         }
     }
 
-    public void Spawn()
+    public void NotificarIngredienteTomado()
     {
-        if (ingredienteActual != null)
-            return;
-
-        if (esperandoRespawn)
-            return;
-
-        if (prefabIngrediente == null)
-        {
-            Debug.LogError("Falta asignar Prefab Ingrediente en " + name);
-            return;
-        }
-
-        if (puntoSpawn == null)
-        {
-            Debug.LogError("Falta asignar Punto Spawn en " + name);
-            return;
-        }
-
-        ingredienteActual = Instantiate(
-            prefabIngrediente,
-            puntoSpawn.position,
-            puntoSpawn.rotation
-        );
-
-        IngredienteRespawnable respawnable =
-            ingredienteActual.GetComponent<IngredienteRespawnable>();
-
-        if (respawnable == null)
-        {
-            respawnable = ingredienteActual.AddComponent<IngredienteRespawnable>();
-        }
-
-        respawnable.spawner = this;
-
-        Debug.Log("Ingrediente spawneado: " + ingredienteActual.name);
-    }
-
-    public void NotificarIngredienteTomado(GameObject ingrediente)
-    {
-        if (ingredienteActual == null)
-            return;
-
-        if (ingrediente != ingredienteActual)
-            return;
-
-        ingredienteActual = null;
-
-        if (!esperandoRespawn)
-        {
-            esperandoRespawn = true;
-            Invoke(nameof(Respawnear), tiempoRespawn);
-        }
+        if (!activo) return;
+        Invoke(nameof(Respawnear), tiempoRespawn);
     }
 
     private void Respawnear()
     {
-        esperandoRespawn = false;
-        Spawn();
+        if (prefabIngrediente == null)
+        {
+            Debug.LogError($"[SpawnerIngrediente] No hay prefab asignado en {gameObject.name}.");
+            return;
+        }
+
+        GameObject nuevo = Instantiate(prefabIngrediente, posicionOriginal, rotacionOriginal);
+        nuevo.transform.localScale = escalaOriginal;
+
+        // Propagamos los valores al clone ANTES de que su Start() corra
+        if (nuevo.TryGetComponent(out SpawnerIngrediente nuevoSpawner))
+        {
+            nuevoSpawner.posicionOriginal = posicionOriginal;
+            nuevoSpawner.rotacionOriginal = rotacionOriginal;
+            nuevoSpawner.escalaOriginal = escalaOriginal;
+            nuevoSpawner.activo = activo;
+            nuevoSpawner.tiempoRespawn = tiempoRespawn;
+            nuevoSpawner.inicializadoExternamente = true;
+        }
+    }
+
+    public void Activar()
+    {
+        activo = true;
+        Respawnear();
+    }
+
+    public void Desactivar()
+    {
+        activo = false;
+        CancelInvoke(nameof(Respawnear));
     }
 }

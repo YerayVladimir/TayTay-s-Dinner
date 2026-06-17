@@ -1,0 +1,366 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3716830619101870440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5967695099461593795}
+  - component: {fileID: 3931793898967888379}
+  - component: {fileID: 7498675018849690496}
+  - component: {fileID: 166124546385711230}
+  - component: {fileID: 7106422416764504057}
+  - component: {fileID: 3218332547313728877}
+  - component: {fileID: 6998344022525276122}
+  m_Layer: 0
+  m_Name: Aro_cebolla
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5967695099461593795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716830619101870440}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -27.77, y: 2.743, z: -9.54}
+  m_LocalScale: {x: 2.7362, y: 1, z: 2.2524974}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1188414482754484311}
+  - {fileID: 1038110415968923967}
+  - {fileID: 2200845318471145757}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3931793898967888379
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716830619101870440}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.070505396, y: 0.07, z: 0.07010159}
+  m_Center: {x: -0.0008650755, y: 0, z: 0.0019035436}
+--- !u!54 &7498675018849690496
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716830619101870440}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &166124546385711230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716830619101870440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0773ea834c9c42343af754e07f515828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpSpeed: 10
+  bloqueado: 0
+  layerBloqueado: Default
+--- !u!114 &7106422416764504057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716830619101870440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1bb274dee79224299bf2291ecb99a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+--- !u!114 &3218332547313728877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716830619101870440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab7c8bbdf4804e4418a41466899b3e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabIngrediente: {fileID: 0}
+  tiempoRespawn: 1.5
+  activo: 1
+  posicionOriginal: {x: 0, y: 0, z: 0}
+  rotacionOriginal: {x: 0, y: 0, z: 0, w: 0}
+  escalaOriginal: {x: 0, y: 0, z: 0}
+  inicializadoExternamente: 0
+--- !u!114 &6998344022525276122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716830619101870440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5923bb0247b387948b6748757cd03e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipo: 10
+  estado: 1
+  requiereCoccion: 1
+  tiempoParaCocinar: 8
+  tiempoParaQuemar: 14
+  modeloNormal: {fileID: 370363073598696325}
+  modeloCrudo: {fileID: 1567579794625627047}
+  modeloCocinado: {fileID: 370363073598696325}
+  modeloQuemado: {fileID: 1960693116863439597}
+  idNormal: 14
+  idCrudo: 18
+  idCocinado: 14
+  idQuemado: 15
+  cocinandose: 0
+  tiempoCoccion: 0
+  fueTomadoPorJugador: 0
+--- !u!1001 &712310435466483412
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5967695099461593795}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a8e4a9dc19538e54f845636526ce34f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a8e4a9dc19538e54f845636526ce34f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.005449813
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a8e4a9dc19538e54f845636526ce34f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a8e4a9dc19538e54f845636526ce34f7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a8e4a9dc19538e54f845636526ce34f7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a8e4a9dc19538e54f845636526ce34f7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a8e4a9dc19538e54f845636526ce34f7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a8e4a9dc19538e54f845636526ce34f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a8e4a9dc19538e54f845636526ce34f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a8e4a9dc19538e54f845636526ce34f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a8e4a9dc19538e54f845636526ce34f7, type: 3}
+      propertyPath: m_Name
+      value: Aro de cebolla Frita
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a8e4a9dc19538e54f845636526ce34f7, type: 3}
+--- !u!1 &370363073598696325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a8e4a9dc19538e54f845636526ce34f7, type: 3}
+  m_PrefabInstance: {fileID: 712310435466483412}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1038110415968923967 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a8e4a9dc19538e54f845636526ce34f7, type: 3}
+  m_PrefabInstance: {fileID: 712310435466483412}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1726182478562975676
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5967695099461593795}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: d9fe3c8f1676fa84db2374a8d52191cb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d9fe3c8f1676fa84db2374a8d52191cb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.006645044
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d9fe3c8f1676fa84db2374a8d52191cb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d9fe3c8f1676fa84db2374a8d52191cb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d9fe3c8f1676fa84db2374a8d52191cb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d9fe3c8f1676fa84db2374a8d52191cb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d9fe3c8f1676fa84db2374a8d52191cb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d9fe3c8f1676fa84db2374a8d52191cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d9fe3c8f1676fa84db2374a8d52191cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d9fe3c8f1676fa84db2374a8d52191cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d9fe3c8f1676fa84db2374a8d52191cb, type: 3}
+      propertyPath: m_Name
+      value: Aro de cebolla quemada
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d9fe3c8f1676fa84db2374a8d52191cb, type: 3}
+--- !u!4 &1188414482754484311 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d9fe3c8f1676fa84db2374a8d52191cb, type: 3}
+  m_PrefabInstance: {fileID: 1726182478562975676}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1960693116863439597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d9fe3c8f1676fa84db2374a8d52191cb, type: 3}
+  m_PrefabInstance: {fileID: 1726182478562975676}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1801510586571341558
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5967695099461593795}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 77bf3cbfc9bdad143b97a1d7ebbe6139, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77bf3cbfc9bdad143b97a1d7ebbe6139, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00469297
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77bf3cbfc9bdad143b97a1d7ebbe6139, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77bf3cbfc9bdad143b97a1d7ebbe6139, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77bf3cbfc9bdad143b97a1d7ebbe6139, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77bf3cbfc9bdad143b97a1d7ebbe6139, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77bf3cbfc9bdad143b97a1d7ebbe6139, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77bf3cbfc9bdad143b97a1d7ebbe6139, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77bf3cbfc9bdad143b97a1d7ebbe6139, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77bf3cbfc9bdad143b97a1d7ebbe6139, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 77bf3cbfc9bdad143b97a1d7ebbe6139, type: 3}
+      propertyPath: m_Name
+      value: Aro de cebolla Crudo
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77bf3cbfc9bdad143b97a1d7ebbe6139, type: 3}
+--- !u!1 &1567579794625627047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 77bf3cbfc9bdad143b97a1d7ebbe6139, type: 3}
+  m_PrefabInstance: {fileID: 1801510586571341558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2200845318471145757 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 77bf3cbfc9bdad143b97a1d7ebbe6139, type: 3}
+  m_PrefabInstance: {fileID: 1801510586571341558}
+  m_PrefabAsset: {fileID: 0}
