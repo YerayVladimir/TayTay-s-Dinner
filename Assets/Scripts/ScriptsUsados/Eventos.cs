@@ -1,11 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-/// <summary>
-/// Controla los pedidos, la visualización simple del pedido y el dinero.
-/// Puede funcionar aunque no tengas nota, iconos ni texto de dinero.
-/// </summary>
 public class Eventos : MonoBehaviour
 {
     [Header("Elementos visuales del pedido")]
@@ -18,7 +15,7 @@ public class Eventos : MonoBehaviour
     [Header("Texto simple del pedido")]
     public TextMeshProUGUI textoPedido;
 
-    [Header("Animación de la nota")]
+    [Header("Animacion de la nota")]
     public Animator nota;
     public string animacionEntradaNota = "AnimNotaEntrada";
 
@@ -43,11 +40,18 @@ public class Eventos : MonoBehaviour
     public int dineroActual = 0;
     public TextMeshProUGUI textoDinero;
 
+    [Header("Mensaje de entrega")]
+    public TextMeshProUGUI textoMensajeEntrega;
+    public float tiempoMensajeEntrega = 2f;
+
+    private Coroutine corrutinaMensajeEntrega;
+
     private void Start()
-    {
-        OcultarPedido();
-        ActualizarDinero();
-    }
+{
+    OcultarPedido();
+    OcultarMensajeEntregaInicial();
+    ActualizarDinero();
+}
 
     //=================================================
     // PEDIDOS
@@ -57,35 +61,10 @@ public class Eventos : MonoBehaviour
     {
         List<int> pedido = new List<int>();
 
-        // Siempre inicia con pan abajo
         pedido.Add(idPanAbajo);
-
-        // Siempre lleva carne
         pedido.Add(idCarneObligatoria);
 
-        List<int> ingredientesValidos = new List<int>();
-
-        foreach (int ingrediente in ingredientesDisponibles)
-        {
-            if (ingrediente == idPanAbajo)
-                continue;
-
-            if (ingrediente == idPanArriba)
-                continue;
-
-            if (ingrediente == idCarneObligatoria)
-                continue;
-
-            if (ingredientesValidos.Contains(ingrediente))
-                continue;
-
-            ingredientesValidos.Add(ingrediente);
-        }
-
-        if (ingredientesValidos.Count == 0)
-        {
-            Debug.LogWarning("No hay ingredientes extra disponibles para generar pedidos.");
-        }
+        List<int> ingredientesValidos = ObtenerIngredientesValidosParaPedido();
 
         int minimo = Mathf.Max(0, cantidadMinimaIngredientes);
         int maximo = Mathf.Max(minimo, cantidadMaximaIngredientes);
@@ -112,14 +91,111 @@ public class Eventos : MonoBehaviour
             ingredientesValidos.RemoveAt(indice);
         }
 
-        // Siempre termina con pan arriba
         pedido.Add(idPanArriba);
 
         pedidoActual = new List<int>(pedido);
 
-        Debug.Log("Pedido generado: " + ConstruirTextoPedidoConIDs(pedido));
+        Debug.Log("PEDIDO GENERADO IDS: " + ConvertirListaATexto(pedido));
+        Debug.Log("PEDIDO GENERADO TEXTO:\n" + ConstruirTextoPedido(pedido));
 
         return pedido;
+    }
+
+    private List<int> ObtenerIngredientesValidosParaPedido()
+    {
+        List<int> ingredientesValidos = new List<int>();
+
+        foreach (int ingrediente in ingredientesDisponibles)
+        {
+            if (!EsIngredienteExtraValido(ingrediente))
+            {
+                Debug.LogWarning(
+                    "ID ignorado en Ingredientes Disponibles porque no es valido: " +
+                    ingrediente
+                );
+
+                continue;
+            }
+
+            if (ingredientesValidos.Contains(ingrediente))
+                continue;
+
+            ingredientesValidos.Add(ingrediente);
+        }
+
+        if (ingredientesValidos.Count == 0)
+        {
+            Debug.LogWarning(
+                "No hay ingredientes extra validos. Se usaran valores por defecto."
+            );
+
+            ingredientesValidos.Add(2);
+            ingredientesValidos.Add(3);
+            ingredientesValidos.Add(4);
+            ingredientesValidos.Add(5);
+            ingredientesValidos.Add(6);
+            ingredientesValidos.Add(7);
+            ingredientesValidos.Add(8);
+            ingredientesValidos.Add(10);
+        }
+
+        return ingredientesValidos;
+    }
+
+    private bool EsIngredienteExtraValido(int id)
+    {
+        if (id == idPanAbajo)
+            return false;
+
+        if (id == idCarneObligatoria)
+            return false;
+
+        if (id == idPanArriba)
+            return false;
+
+        if (id == 2)
+            return true;
+
+        if (id == 3)
+            return true;
+
+        if (id == 4)
+            return true;
+
+        if (id == 5)
+            return true;
+
+        if (id == 6)
+            return true;
+
+        if (id == 7)
+            return true;
+
+        if (id == 8)
+            return true;
+
+        if (id == 10)
+            return true;
+
+        return false;
+    }
+
+    private void LimpiarIngredientesDisponiblesInvalidos()
+    {
+        List<int> listaLimpia = new List<int>();
+
+        foreach (int ingrediente in ingredientesDisponibles)
+        {
+            if (!EsIngredienteExtraValido(ingrediente))
+                continue;
+
+            if (listaLimpia.Contains(ingrediente))
+                continue;
+
+            listaLimpia.Add(ingrediente);
+        }
+
+        ingredientesDisponibles = listaLimpia;
     }
 
     public void MostrarPedido(List<int> pedido)
@@ -130,13 +206,11 @@ public class Eventos : MonoBehaviour
         pedidoActual = new List<int>(pedido);
 
         OcultarIconosPedido();
-
         MostrarIconosPedido(pedido);
-
         MostrarNotaVisual();
-
         MostrarPedidoTexto(pedido);
     }
+
     public bool PuedeCrearOtroPedido()
     {
         if (pedidoUIManager == null)
@@ -144,6 +218,7 @@ public class Eventos : MonoBehaviour
 
         return pedidoUIManager.PuedeCrearPedido();
     }
+
     public void MostrarPedidoDeCliente(Cliente cliente, List<int> pedido)
     {
         if (cliente == null)
@@ -164,7 +239,7 @@ public class Eventos : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No hay PedidoUIManager asignado. Se usará la UI vieja.");
+            Debug.LogWarning("No hay PedidoUIManager asignado. Se usara la UI vieja.");
             MostrarPedido(pedido);
         }
     }
@@ -239,15 +314,21 @@ public class Eventos : MonoBehaviour
         return texto;
     }
 
-    private string ConstruirTextoPedidoConIDs(List<int> pedido)
+    public string ConvertirListaATexto(List<int> lista)
     {
+        if (lista == null)
+            return "null";
+
+        if (lista.Count == 0)
+            return "vacia";
+
         string texto = "";
 
-        for (int i = 0; i < pedido.Count; i++)
+        for (int i = 0; i < lista.Count; i++)
         {
-            texto += pedido[i];
+            texto += lista[i];
 
-            if (i < pedido.Count - 1)
+            if (i < lista.Count - 1)
             {
                 texto += ", ";
             }
@@ -309,7 +390,7 @@ public class Eventos : MonoBehaviour
 
         if (textoPedido != null)
         {
-            textoPedido.text = "Pedido:\nSin pedido";
+            textoPedido.text = "";
         }
     }
 
@@ -342,6 +423,9 @@ public class Eventos : MonoBehaviour
     {
         dineroActual += cantidad;
 
+        Debug.Log("DINERO AGREGADO: $" + cantidad);
+        Debug.Log("DINERO ACTUAL: $" + dineroActual);
+
         ActualizarDinero();
     }
 
@@ -354,6 +438,9 @@ public class Eventos : MonoBehaviour
             dineroActual = 0;
         }
 
+        Debug.Log("DINERO QUITADO: $" + cantidad);
+        Debug.Log("DINERO ACTUAL: $" + dineroActual);
+
         ActualizarDinero();
     }
 
@@ -363,5 +450,64 @@ public class Eventos : MonoBehaviour
         {
             textoDinero.text = "$" + dineroActual;
         }
+        else
+        {
+            Debug.LogWarning("No esta asignado Texto Dinero en GameManagerEventos.");
+        }
+    }
+
+    //=================================================
+    // MENSAJE DE ENTREGA
+    //=================================================
+
+    private void OcultarMensajeEntregaInicial()
+    {
+        if (textoMensajeEntrega != null)
+        {
+            textoMensajeEntrega.text = "";
+            textoMensajeEntrega.gameObject.SetActive(false);
+        }
+    }
+
+    public void MostrarMensajeEntrega(string mensaje, bool correcto)
+    {
+        if (textoMensajeEntrega == null)
+        {
+            Debug.LogWarning("No esta asignado Texto Mensaje Entrega en GameManagerEventos.");
+            return;
+        }
+
+        textoMensajeEntrega.gameObject.SetActive(true);
+        textoMensajeEntrega.text = mensaje;
+
+        if (correcto)
+        {
+            textoMensajeEntrega.color = Color.green;
+        }
+        else
+        {
+            textoMensajeEntrega.color = Color.red;
+        }
+
+        if (corrutinaMensajeEntrega != null)
+        {
+            StopCoroutine(corrutinaMensajeEntrega);
+        }
+
+        corrutinaMensajeEntrega =
+            StartCoroutine(OcultarMensajeEntregaDespues());
+    }
+
+    private IEnumerator OcultarMensajeEntregaDespues()
+    {
+        yield return new WaitForSeconds(tiempoMensajeEntrega);
+
+        if (textoMensajeEntrega != null)
+        {
+            textoMensajeEntrega.text = "";
+            textoMensajeEntrega.gameObject.SetActive(false);
+        }
+
+        corrutinaMensajeEntrega = null;
     }
 }
