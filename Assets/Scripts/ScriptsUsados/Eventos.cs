@@ -130,14 +130,14 @@ public class Eventos : MonoBehaviour
                 "No hay ingredientes extra validos. Se usaran valores por defecto."
             );
 
-            ingredientesValidos.Add(2);  // Tocino
-            ingredientesValidos.Add(3);  // Queso
-            ingredientesValidos.Add(4);  // Lechuga
-            ingredientesValidos.Add(5);  // Tomate
-            ingredientesValidos.Add(6);  // Cebolla
-            ingredientesValidos.Add(7);  // Pepinillo
-            ingredientesValidos.Add(8);  // Aros de cebolla
-            ingredientesValidos.Add(10); // Papas
+            ingredientesValidos.Add(2);
+            ingredientesValidos.Add(3);
+            ingredientesValidos.Add(4);
+            ingredientesValidos.Add(5);
+            ingredientesValidos.Add(6);
+            ingredientesValidos.Add(7);
+            ingredientesValidos.Add(8);
+            ingredientesValidos.Add(10);
         }
 
         return ingredientesValidos;
@@ -154,28 +154,28 @@ public class Eventos : MonoBehaviour
         if (id == idPanArriba)
             return false;
 
-        if (id == 2)  // Tocino
+        if (id == 2)
             return true;
 
-        if (id == 3)  // Queso
+        if (id == 3)
             return true;
 
-        if (id == 4)  // Lechuga
+        if (id == 4)
             return true;
 
-        if (id == 5)  // Tomate
+        if (id == 5)
             return true;
 
-        if (id == 6)  // Cebolla
+        if (id == 6)
             return true;
 
-        if (id == 7)  // Pepinillo
+        if (id == 7)
             return true;
 
-        if (id == 8)  // Aros de cebolla
+        if (id == 8)
             return true;
 
-        if (id == 10) // Papas
+        if (id == 10)
             return true;
 
         return false;
@@ -207,11 +207,8 @@ public class Eventos : MonoBehaviour
         pedidoActual = new List<int>(pedido);
 
         OcultarIconosPedido();
-
         MostrarIconosPedido(pedido);
-
         MostrarNotaVisual();
-
         MostrarPedidoTexto(pedido);
     }
 
@@ -392,9 +389,6 @@ public class Eventos : MonoBehaviour
 
         OcultarIconosPedido();
 
-        // CORRECCION:
-        // Antes aqui decia "Pedido:\nSin pedido".
-        // Eso era lo que te aparecia grande en pantalla.
         if (textoPedido != null)
         {
             textoPedido.text = "";
