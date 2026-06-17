@@ -47,12 +47,11 @@ public class Eventos : MonoBehaviour
     private Coroutine corrutinaMensajeEntrega;
 
     private void Start()
-    {
-        LimpiarIngredientesDisponiblesInvalidos();
-        OcultarPedido();
-        OcultarMensajeEntregaInicial();
-        ActualizarDinero();
-    }
+{
+    OcultarPedido();
+    OcultarMensajeEntregaInicial();
+    ActualizarDinero();
+}
 
     //=================================================
     // PEDIDOS

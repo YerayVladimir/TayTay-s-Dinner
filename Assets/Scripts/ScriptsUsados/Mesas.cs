@@ -15,34 +15,30 @@ public class Mesas : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("ALGO ENTRO A LA MESA: " + other.name);
+        IntentarRecibirHamburguesa(other);
+    }
 
+    private void OnTriggerStay(Collider other)
+    {
+        IntentarRecibirHamburguesa(other);
+    }
+
+    private void IntentarRecibirHamburguesa(Collider other)
+    {
         if (pedidoRecibido)
-        {
-            Debug.Log("La mesa ya recibio un pedido.");
             return;
-        }
 
         if (!ocupada)
-        {
-            Debug.Log("La mesa no esta ocupada.");
             return;
-        }
 
         if (clienteActual == null)
-        {
-            Debug.Log("La mesa esta ocupada, pero no tiene clienteActual.");
             return;
-        }
 
         HamburguesaActual hamburguesa =
             other.GetComponentInParent<HamburguesaActual>();
 
         if (hamburguesa == null)
-        {
-            Debug.Log("Lo que entro no tiene HamburguesaActual.");
             return;
-        }
 
         if (hamburguesa.ingredientes == null ||
             hamburguesa.ingredientes.Count == 0)
@@ -55,7 +51,7 @@ public class Mesas : MonoBehaviour
 
         Cliente cliente = clienteActual;
 
-        Debug.Log("HAMBURGUESA DETECTADA.");
+        Debug.Log("HAMBURGUESA DETECTADA EN MESA.");
         Debug.Log("PEDIDO ESPERADO: " + ConvertirListaATexto(cliente.pedido));
         Debug.Log("HAMBURGUESA ENTREGADA: " + ConvertirListaATexto(hamburguesa.ingredientes));
 
@@ -127,9 +123,7 @@ public class Mesas : MonoBehaviour
         for (int i = 0; i < pedido.Count; i++)
         {
             if (pedido[i] != hamburguesa[i])
-            {
                 return false;
-            }
         }
 
         return true;
