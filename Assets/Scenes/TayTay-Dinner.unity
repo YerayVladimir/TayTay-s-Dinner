@@ -10229,6 +10229,8 @@ MonoBehaviour:
   pedidoActual: 
   dineroActual: 0
   textoDinero: {fileID: 179019417}
+  textoMensajeEntrega: {fileID: 0}
+  tiempoMensajeEntrega: 2
 --- !u!4 &1670784003
 Transform:
   m_ObjectHideFlags: 0
@@ -13095,7 +13097,7 @@ MonoBehaviour:
   modeloCrudo: {fileID: 0}
   modeloCocinado: {fileID: 0}
   modeloQuemado: {fileID: 0}
-  idNormal: -1
+  idNormal: 7
   idCrudo: -1
   idCocinado: -1
   idQuemado: -1
