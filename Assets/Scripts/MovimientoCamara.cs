@@ -23,6 +23,8 @@ public class FPSController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0;
     }
 
     // Llamado automaticamente por el Player Input cuando se mueven WASD
