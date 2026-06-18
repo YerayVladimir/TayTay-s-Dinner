@@ -7,7 +7,7 @@ public class SpawnerIngrediente : MonoBehaviour
     public GameObject prefabIngrediente;
 
     [Header("Respawn")]
-    public float tiempoRespawn = 1.5f;
+    public float tiempoRespawn = 0.5f;
 
     [Tooltip("Desactiva para ingredientes bloqueados por compra.")]
     public bool activo = true;
@@ -66,8 +66,9 @@ public class SpawnerIngrediente : MonoBehaviour
 
     private void Respawnear()
     {
-        if (!activo)
-            return;
+
+        Debug.Log($"[Respawnear] Spawneando en posicion: {posicionOriginal}");
+        if (!activo) return;
 
         if (prefabIngrediente == null)
         {
@@ -75,13 +76,16 @@ public class SpawnerIngrediente : MonoBehaviour
             return;
         }
 
-        GameObject nuevo = Instantiate(
-            prefabIngrediente,
-            posicionOriginal,
-            rotacionOriginal
-        );
-
+        GameObject nuevo = Instantiate(prefabIngrediente, posicionOriginal, rotacionOriginal);
         nuevo.transform.localScale = escalaOriginal;
+
+        // Mantenerlo kinematic hasta que el jugador lo agarre
+        Rigidbody rb = nuevo.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+            rb.useGravity = false;
+        }
 
         if (nuevo.TryGetComponent(out SpawnerIngrediente nuevoSpawner))
         {

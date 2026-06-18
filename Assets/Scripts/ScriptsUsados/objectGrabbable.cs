@@ -21,6 +21,24 @@ public class ObjectGrabbable : MonoBehaviour
         objectRigidbody = GetComponent<Rigidbody>();
     }
 
+    private void Start()
+    {
+        bloqueado = false;
+        pagadoParaEsteAgarre = false;
+        grabPointTransform = null;
+        CambiarLayerRecursivo(gameObject, "Objetos");
+
+        // Reactivar collider por si quedó desactivado al apilar
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+            col.enabled = true;
+
+        if (objectRigidbody != null)
+        {
+            objectRigidbody.useGravity = true;
+            objectRigidbody.isKinematic = false;
+        }
+    }
     public bool PuedeAgarrarse()
     {
         if (!bloqueado)

@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class HamburguesaActual : MonoBehaviour
 {
+
+    private void Start()
+    {
+        LimpiarHamburguesa();
+    }
+
     [Header("Ingredientes actuales de la hamburguesa")]
     public List<int> ingredientes = new List<int>();
 

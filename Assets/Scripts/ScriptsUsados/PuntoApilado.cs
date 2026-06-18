@@ -18,6 +18,18 @@ public class PuntoApilado : MonoBehaviour
     public bool desactivarColliders = true;
     public bool mantenerBloqueado = true;
 
+    private void Start()
+    {
+        ingredientesApilados.Clear();
+
+        // Destruir slots previos que hayan quedado del prefab
+        foreach (Transform hijo in transform)
+        {
+            if (hijo.name.StartsWith("Slot_"))
+                Destroy(hijo.gameObject);
+        }
+    }
+
     private class IngredienteApilado
     {
         public GameObject objeto;

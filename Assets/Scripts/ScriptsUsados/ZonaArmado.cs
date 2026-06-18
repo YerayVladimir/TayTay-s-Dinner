@@ -20,14 +20,18 @@ public class ZonaArmado : MonoBehaviour
     private void Awake()
     {
         if (hamburguesa == null)
-        {
             hamburguesa = GetComponentInParent<HamburguesaActual>();
-        }
 
         if (apilado == null)
-        {
             apilado = GetComponentInParent<PuntoApilado>();
-        }
+    }
+
+    private void Start()
+    {
+        tienePanAbajo = false;
+        tieneCarne = false;
+        hamburguesaCerrada = false;
+        ingredientesAgregados.Clear();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,14 +46,16 @@ public class ZonaArmado : MonoBehaviour
 
     private void IntentarAgregarIngrediente(Collider other)
     {
-        // No apilar mientras todavía tienes presionado el click.
         if (Input.GetMouseButton(0))
             return;
 
-        Ingrediente ingrediente =
-            other.GetComponentInParent<Ingrediente>();
+        Ingrediente ingrediente = other.GetComponentInParent<Ingrediente>();
 
         if (ingrediente == null)
+            return;
+
+        // No agregar si el jugador nunca lo agarró
+        if (!ingrediente.fueTomadoPorJugador)
             return;
 
         if (ingredientesAgregados.Contains(ingrediente))
@@ -99,30 +105,21 @@ public class ZonaArmado : MonoBehaviour
         Collider other,
         Ingrediente ingrediente)
     {
-        // Si el objeto que tiene Ingrediente también tiene Rigidbody o ObjectGrabbable,
-        // usamos ese objeto principal.
         if (ingrediente.GetComponent<Rigidbody>() != null ||
             ingrediente.GetComponent<ObjectGrabbable>() != null)
         {
             return ingrediente.gameObject;
         }
 
-        // Si el collider pertenece a un hijo con Rigidbody, usamos ese hijo.
-        // Esto ayuda con tu estructura de Carnes:
-        // Carnes -> Carne_Cocinada / Carne_Cruda / Carne_Quemada.
         if (other.attachedRigidbody != null)
         {
             HamburguesaActual hamburguesaPadre =
                 other.attachedRigidbody.GetComponentInParent<HamburguesaActual>();
 
             if (hamburguesaPadre == null)
-            {
                 return other.attachedRigidbody.gameObject;
-            }
         }
 
-        // Si hay ObjectGrabbable en algún padre, lo usamos,
-        // siempre que no sea la hamburguesa.
         ObjectGrabbable grabbable =
             other.GetComponentInParent<ObjectGrabbable>();
 
@@ -174,18 +171,12 @@ public class ZonaArmado : MonoBehaviour
     private void ActualizarEstadoHamburguesa(Ingrediente ingrediente)
     {
         if (ingrediente.tipo == Ingrediente.TipoIngrediente.PanAbajo)
-        {
             tienePanAbajo = true;
-        }
 
         if (ingrediente.tipo == Ingrediente.TipoIngrediente.Carne)
-        {
             tieneCarne = true;
-        }
 
         if (ingrediente.tipo == Ingrediente.TipoIngrediente.PanArriba)
-        {
             hamburguesaCerrada = true;
-        }
     }
 }
