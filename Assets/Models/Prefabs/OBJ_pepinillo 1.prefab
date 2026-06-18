@@ -168,6 +168,7 @@ MonoBehaviour:
   prefabIngrediente: {fileID: 347048743875785214}
   tiempoRespawn: 1.5
   activo: 1
+  ocultarSiEstaBloqueado: 1
   posicionOriginal: {x: 0, y: 0, z: 0}
   rotacionOriginal: {x: 0, y: 0, z: 0, w: 0}
   escalaOriginal: {x: 0, y: 0, z: 0}

@@ -101,46 +101,30 @@ public class Eventos : MonoBehaviour
         return pedido;
     }
 
-    private List<int> ObtenerIngredientesValidosParaPedido()
+   private List<int> ObtenerIngredientesValidosParaPedido()
+{
+    List<int> ingredientesValidos = new List<int>();
+
+    foreach (int ingrediente in ingredientesDisponibles)
     {
-        List<int> ingredientesValidos = new List<int>();
-
-        foreach (int ingrediente in ingredientesDisponibles)
-        {
-            if (!EsIngredienteExtraValido(ingrediente))
-            {
-                Debug.LogWarning(
-                    "ID ignorado en Ingredientes Disponibles porque no es valido: " +
-                    ingrediente
-                );
-
-                continue;
-            }
-
-            if (ingredientesValidos.Contains(ingrediente))
-                continue;
-
-            ingredientesValidos.Add(ingrediente);
-        }
-
-        if (ingredientesValidos.Count == 0)
+        if (!EsIngredienteExtraValido(ingrediente))
         {
             Debug.LogWarning(
-                "No hay ingredientes extra validos. Se usaran valores por defecto."
+                "ID ignorado en Ingredientes Disponibles porque no es valido: " +
+                ingrediente
             );
 
-            ingredientesValidos.Add(2);
-            ingredientesValidos.Add(3);
-            ingredientesValidos.Add(4);
-            ingredientesValidos.Add(5);
-            ingredientesValidos.Add(6);
-            ingredientesValidos.Add(7);
-            ingredientesValidos.Add(8);
-            ingredientesValidos.Add(10);
+            continue;
         }
 
-        return ingredientesValidos;
+        if (ingredientesValidos.Contains(ingrediente))
+            continue;
+
+        ingredientesValidos.Add(ingrediente);
     }
+
+    return ingredientesValidos;
+}
 
     private bool EsIngredienteExtraValido(int id)
     {
@@ -455,6 +439,55 @@ public class Eventos : MonoBehaviour
             Debug.LogWarning("No esta asignado Texto Dinero en GameManagerEventos.");
         }
     }
+    public bool TieneDineroSuficiente(int cantidad)
+{
+    return dineroActual >= cantidad;
+}
+
+public bool GastarDinero(int cantidad)
+{
+    if (!TieneDineroSuficiente(cantidad))
+    {
+        Debug.LogWarning("No tienes suficiente dinero.");
+        return false;
+    }
+
+    QuitarDinero(cantidad);
+    return true;
+}
+
+public bool IngredienteYaDisponible(int id)
+{
+    return ingredientesDisponibles.Contains(id);
+}
+
+public bool AgregarIngredienteDisponible(int id)
+{
+    if (!EsIngredienteExtraValido(id))
+    {
+        Debug.LogWarning(
+            "No se puede agregar este ingrediente a pedidos porque no es extra valido: " +
+            id
+        );
+
+        return false;
+    }
+
+    if (ingredientesDisponibles.Contains(id))
+    {
+        Debug.LogWarning("Este ingrediente ya esta disponible: " + ObtenerNombreIngrediente(id));
+        return false;
+    }
+
+    ingredientesDisponibles.Add(id);
+
+    Debug.Log(
+        "Ingrediente desbloqueado para pedidos: " +
+        ObtenerNombreIngrediente(id)
+    );
+
+    return true;
+}
 
     //=================================================
     // MENSAJE DE ENTREGA

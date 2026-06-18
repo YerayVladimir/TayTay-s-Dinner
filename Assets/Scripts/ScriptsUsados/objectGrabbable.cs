@@ -14,6 +14,8 @@ public class ObjectGrabbable : MonoBehaviour
     [Header("Layer al bloquear")]
     public string layerBloqueado = "Default";
 
+    private bool pagadoParaEsteAgarre = false;
+
     private void Awake()
     {
         objectRigidbody = GetComponent<Rigidbody>();
@@ -21,15 +23,50 @@ public class ObjectGrabbable : MonoBehaviour
 
     public bool PuedeAgarrarse()
     {
-        return !bloqueado;
+        if (!bloqueado)
+            return true;
+
+        IngredienteComprable comprable =
+            GetComponent<IngredienteComprable>();
+
+        if (comprable == null)
+        {
+            Debug.Log(name + " esta bloqueado y no tiene IngredienteComprable.");
+            return false;
+        }
+
+        return comprable.PuedeTomarseComprado();
     }
 
     public void Grab(Transform nuevoGrabPoint)
     {
         if (bloqueado)
         {
-            Debug.Log(name + " está bloqueado y no se puede agarrar.");
-            return;
+            IngredienteComprable comprable =
+                GetComponent<IngredienteComprable>();
+
+            if (comprable == null)
+            {
+                Debug.Log(name + " esta bloqueado y no se puede agarrar.");
+                return;
+            }
+
+            bool pudoUsarCompra =
+                comprable.IntentarUsarCompra();
+
+            if (!pudoUsarCompra)
+            {
+                Debug.Log(name + " esta bloqueado. Primero debes comprar.");
+                return;
+            }
+
+            pagadoParaEsteAgarre = true;
+
+            Debug.Log(name + " se puede agarrar porque ya fue pagado.");
+        }
+        else
+        {
+            pagadoParaEsteAgarre = false;
         }
 
         IngredienteRespawnable respawnable =
@@ -55,8 +92,11 @@ public class ObjectGrabbable : MonoBehaviour
     {
         grabPointTransform = null;
 
-        if (bloqueado)
-            return;
+        if (pagadoParaEsteAgarre)
+        {
+            bloqueado = true;
+            pagadoParaEsteAgarre = false;
+        }
 
         if (objectRigidbody != null)
         {
@@ -84,12 +124,6 @@ public class ObjectGrabbable : MonoBehaviour
         }
 
         CambiarLayerRecursivo(gameObject, layerBloqueado);
-
-        Debug.Log(
-            name +
-            " bloqueado. Layer actual: " +
-            LayerMask.LayerToName(gameObject.layer)
-        );
     }
 
     public void DesbloquearObjeto()
@@ -106,9 +140,6 @@ public class ObjectGrabbable : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (bloqueado)
-            return;
-
         if (grabPointTransform == null)
             return;
 
