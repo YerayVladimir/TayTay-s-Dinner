@@ -4,6 +4,7 @@ using TMPro;
 
 public class PedidoUIManager : MonoBehaviour
 {
+    public UIPool uiPool;
     [Header("UI de pedidos")]
     public GameObject prefabPedidoUI;
     public Transform contenedorPedidos;
@@ -62,10 +63,9 @@ public class PedidoUIManager : MonoBehaviour
             return;
         }
 
-        GameObject nuevoPedidoUI = Instantiate(
-            prefabPedidoUI,
-            contenedorPedidos
-        );
+        GameObject nuevoPedidoUI = uiPool.Obtener();
+        nuevoPedidoUI.SetActive(true);
+        
 
         TextMeshProUGUI texto =
             nuevoPedidoUI.GetComponentInChildren<TextMeshProUGUI>();
@@ -94,7 +94,7 @@ public class PedidoUIManager : MonoBehaviour
 
         if (pedidoUI != null)
         {
-            Destroy(pedidoUI);
+            uiPool.Devolver(pedidoUI);
         }
 
         pedidosUI.Remove(cliente);
