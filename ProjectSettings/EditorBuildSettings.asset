@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TayTay-Dinner.unity
+    guid: 305cffb23d3619a4faf50ca57e46083c
   m_configObjects: {}
