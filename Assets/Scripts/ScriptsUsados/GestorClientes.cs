@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GestorClientes : MonoBehaviour
 {
+    List<GameObject> poolClientes = new List<GameObject>();
+
     public static GestorClientes instancia;
 
     [Header("Clientes")]
@@ -101,13 +103,15 @@ public class GestorClientes : MonoBehaviour
             return;
         }
 
-        GameObject nuevo = Instantiate(
-            prefabCliente,
-            spawnCliente.position,
-            spawnCliente.rotation
-        );
+        GameObject nuevo = ObtenerClienteDelPool();
+
+        nuevo.transform.position = spawnCliente.position;
+        nuevo.transform.rotation = spawnCliente.rotation;
+
+        nuevo.SetActive(true);
 
         Cliente cliente = nuevo.GetComponent<Cliente>();
+
 
         if (cliente == null)
         {
@@ -182,5 +186,27 @@ public class GestorClientes : MonoBehaviour
 
         Debug.LogWarning("No hay mesas libres.");
         return null;
+    }
+
+    GameObject ObtenerClienteDelPool()
+    {
+        foreach (var obj in poolClientes)
+        {
+            if (!obj.activeInHierarchy)
+            {
+                Cliente c = obj.GetComponent<Cliente>();
+                c.Reiniciar();
+                return obj;
+            }
+        }
+
+        GameObject nuevo = Instantiate(
+            clientes[Random.Range(0, clientes.Length)],
+            spawnCliente.position,
+            spawnCliente.rotation
+        );
+
+        poolClientes.Add(nuevo);
+        return nuevo;
     }
 }

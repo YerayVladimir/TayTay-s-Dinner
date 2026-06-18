@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -49,7 +50,7 @@ public class Cliente : MonoBehaviour
     {
         Movimiento();
 
-        ControlPaciencia();
+        
     }
 
     void Movimiento()
@@ -75,27 +76,18 @@ public class Cliente : MonoBehaviour
             if (estado == EstadoCliente.CaminandoMesa)
             {
                 estado = EstadoCliente.EsperandoComida;
+
+                StartCoroutine(ControlPacienciaRutina());
             }
 
             if (estado == EstadoCliente.Saliendo)
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
     }
 
-    void ControlPaciencia()
-    {
-        if (estado != EstadoCliente.EsperandoComida)
-            return;
-
-        pacienciaActual -= Time.deltaTime;
-
-        if (pacienciaActual <= 0)
-        {
-            AbandonarPorPaciencia();
-        }
-    }
+    
 
     public void AsignarEventos(Eventos nuevosEventos)
     {
@@ -168,5 +160,38 @@ public class Cliente : MonoBehaviour
             GestorClientes.instancia
             .puntoSalida.position
         );
+    }
+
+    IEnumerator ControlPacienciaRutina()
+    {
+        while (estado == EstadoCliente.EsperandoComida)
+        {
+            pacienciaActual -= 1f;
+
+            if (pacienciaActual <= 0)
+            {
+                AbandonarPorPaciencia();
+                yield break;
+            }
+
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    public void Reiniciar()
+    {
+        estado = EstadoCliente.EnFila;
+        pacienciaActual = pacienciaMaxima;
+
+        pedido.Clear();
+
+        yaAtendido = false;
+
+        mesaAsignada = null;
+
+        moviendose = false;
+
+        // Opcional: reset posición/rotación si quieres extra seguridad
+        // transform.rotation = Quaternion.identity;
     }
 }
