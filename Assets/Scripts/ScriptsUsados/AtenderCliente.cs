@@ -5,8 +5,20 @@ public class AtenderCliente : MonoBehaviour
     [Header("Referencias")]
     public Eventos eventos;
 
+    [Header("Jugador")]
+    public Transform jugador;
+
     [Header("Tecla para atender")]
     public KeyCode teclaAtender = KeyCode.R;
+
+    [Header("Atender frente al primer cliente")]
+    public bool permitirAtenderFrenteCliente = true;
+    public float distanciaMaximaCliente = 2.2f;
+
+    [Header("Atender desde caja / mostrador")]
+    public bool permitirAtenderEnMostrador = true;
+    public Transform puntoMostrador;
+    public float distanciaMaximaMostrador = 2.5f;
 
     private void Update()
     {
@@ -24,6 +36,12 @@ public class AtenderCliente : MonoBehaviour
             return;
         }
 
+        if (jugador == null)
+        {
+            Debug.LogError("Falta asignar el Jugador en AtenderCliente.");
+            return;
+        }
+
         if (GestorClientes.instancia == null)
         {
             Debug.LogError("No existe GestorClientes en la escena.");
@@ -38,11 +56,18 @@ public class AtenderCliente : MonoBehaviour
             return;
         }
 
+        if (!PuedeAtenderPorUbicacion(cliente))
+        {
+            Debug.LogWarning("Debes estar frente al primer cliente o en el mostrador para tomar el pedido.");
+            return;
+        }
+
         if (cliente.yaAtendido)
         {
             Debug.LogWarning("Este cliente ya fue atendido.");
             return;
         }
+
         if (!eventos.PuedeCrearOtroPedido())
         {
             Debug.LogWarning("Ya hay 3 pedidos activos. Entrega uno antes de atender otro cliente.");
@@ -58,6 +83,8 @@ public class AtenderCliente : MonoBehaviour
         }
 
         cliente.yaAtendido = true;
+
+        cliente.AsignarEventos(eventos);
 
         cliente.pedido = eventos.GenerarPedido();
 
@@ -80,5 +107,42 @@ public class AtenderCliente : MonoBehaviour
             "Cliente atendido. Pedido: " +
             string.Join(", ", cliente.pedido)
         );
+    }
+
+    private bool PuedeAtenderPorUbicacion(Cliente cliente)
+    {
+        if (cliente == null)
+            return false;
+
+        bool cercaDelPrimerCliente = false;
+        bool cercaDelMostrador = false;
+
+        if (permitirAtenderFrenteCliente)
+        {
+            float distanciaCliente = Vector3.Distance(
+                jugador.position,
+                cliente.transform.position
+            );
+
+            if (distanciaCliente <= distanciaMaximaCliente)
+            {
+                cercaDelPrimerCliente = true;
+            }
+        }
+
+        if (permitirAtenderEnMostrador && puntoMostrador != null)
+        {
+            float distanciaMostrador = Vector3.Distance(
+                jugador.position,
+                puntoMostrador.position
+            );
+
+            if (distanciaMostrador <= distanciaMaximaMostrador)
+            {
+                cercaDelMostrador = true;
+            }
+        }
+
+        return cercaDelPrimerCliente || cercaDelMostrador;
     }
 }

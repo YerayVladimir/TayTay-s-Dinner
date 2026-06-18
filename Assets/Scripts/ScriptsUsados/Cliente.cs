@@ -24,8 +24,7 @@ public class Cliente : MonoBehaviour
     public float pacienciaActual;
 
     [Header("Pedido")]
-    public List<int> pedido =
-        new List<int>();
+    public List<int> pedido = new List<int>();
 
     [Header("Control de atención")]
     public bool yaAtendido = false;
@@ -33,13 +32,17 @@ public class Cliente : MonoBehaviour
     [Header("Mesa")]
     public Mesas mesaAsignada;
 
+    [Header("Eventos")]
+    public Eventos eventos;
+
     private Vector3 destino;
     private bool moviendose;
 
+    private bool pedidoCanceladoOEntregado = false;
+
     private void Start()
     {
-        pacienciaActual =
-            pacienciaMaxima;
+        pacienciaActual = pacienciaMaxima;
     }
 
     private void Update()
@@ -54,8 +57,7 @@ public class Cliente : MonoBehaviour
         if (!moviendose)
             return;
 
-        Vector3 direccion =
-            destino - transform.position;
+        Vector3 direccion = destino - transform.position;
 
         if (direccion.magnitude > 0.1f)
         {
@@ -64,22 +66,18 @@ public class Cliente : MonoBehaviour
                 velocidad *
                 Time.deltaTime;
 
-            transform.forward =
-                direccion.normalized;
+            transform.forward = direccion.normalized;
         }
         else
         {
             moviendose = false;
 
-            if (estado ==
-                EstadoCliente.CaminandoMesa)
+            if (estado == EstadoCliente.CaminandoMesa)
             {
-                estado =
-                    EstadoCliente.EsperandoComida;
+                estado = EstadoCliente.EsperandoComida;
             }
 
-            if (estado ==
-                EstadoCliente.Saliendo)
+            if (estado == EstadoCliente.Saliendo)
             {
                 Destroy(gameObject);
             }
@@ -88,69 +86,87 @@ public class Cliente : MonoBehaviour
 
     void ControlPaciencia()
     {
-        if (estado !=
-            EstadoCliente.EsperandoComida)
+        if (estado != EstadoCliente.EsperandoComida)
             return;
 
-        pacienciaActual -=
-            Time.deltaTime;
+        pacienciaActual -= Time.deltaTime;
 
         if (pacienciaActual <= 0)
         {
-            IrASalida();
+            AbandonarPorPaciencia();
         }
     }
 
-    public void AsignarPedido(
-        List<int> nuevoPedido)
+    public void AsignarEventos(Eventos nuevosEventos)
     {
-        pedido =
-            new List<int>(nuevoPedido);
+        eventos = nuevosEventos;
     }
 
-    public void MoverA(
-        Vector3 nuevaPosicion)
+    public void AsignarPedido(List<int> nuevoPedido)
     {
-        destino =
-            nuevaPosicion;
+        pedido = new List<int>(nuevoPedido);
+    }
 
+    public void MoverA(Vector3 nuevaPosicion)
+    {
+        destino = nuevaPosicion;
         moviendose = true;
     }
 
-    public void IrAMesa(
-        Mesas mesa)
+    public void IrAMesa(Mesas mesa)
     {
         mesaAsignada = mesa;
 
-        estado =
-            EstadoCliente.CaminandoMesa;
+        estado = EstadoCliente.CaminandoMesa;
 
-        MoverA(
-            mesa.puntoSentarse.position);
+        MoverA(mesa.puntoSentarse.position);
     }
 
     public void PedidoEntregado()
     {
-        estado =
-            EstadoCliente.Comiendo;
+        pedidoCanceladoOEntregado = true;
 
-        Invoke(
-            nameof(IrASalida),
-            5f);
+        estado = EstadoCliente.Comiendo;
+
+        Invoke(nameof(IrASalida), 5f);
+    }
+
+    public void AbandonarPorPaciencia()
+    {
+        if (pedidoCanceladoOEntregado)
+            return;
+
+        pedidoCanceladoOEntregado = true;
+
+        if (eventos != null)
+        {
+            eventos.QuitarPedidoDeCliente(this);
+        }
+        else
+        {
+            Debug.LogWarning("El cliente no tiene asignado Eventos, no se pudo quitar su pedido de la UI.");
+        }
+
+        pedido.Clear();
+
+        Debug.Log("El cliente se fue por falta de paciencia. Pedido cancelado.");
+
+        IrASalida();
     }
 
     public void IrASalida()
     {
-        estado =
-            EstadoCliente.Saliendo;
+        estado = EstadoCliente.Saliendo;
 
         if (mesaAsignada != null)
         {
             mesaAsignada.LiberarMesa();
+            mesaAsignada = null;
         }
 
         MoverA(
             GestorClientes.instancia
-            .puntoSalida.position);
+            .puntoSalida.position
+        );
     }
 }

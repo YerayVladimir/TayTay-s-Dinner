@@ -2444,6 +2444,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.37, y: 0.13054842, z: 0.102836065}
   m_Center: {x: 0, y: -0.022913212, z: 0.00641803}
+--- !u!4 &360874727 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e5e34a02f57a39a4d8109560b8fcca79, type: 3}
+  m_PrefabInstance: {fileID: 1097093779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &363872279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5300809402699313779, guid: 4011f1a26f9f0564580e13457e6f4971, type: 3}
@@ -7165,7 +7170,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventos: {fileID: 1670784002}
+  jugador: {fileID: 765800249}
   teclaAtender: 114
+  permitirAtenderFrenteCliente: 1
+  distanciaMaximaCliente: 2.2
+  permitirAtenderEnMostrador: 1
+  puntoMostrador: {fileID: 360874727}
+  distanciaMaximaMostrador: 2.5
 --- !u!114 &1034371090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9728,9 +9739,8 @@ GameObject:
   - component: {fileID: 1370055536}
   - component: {fileID: 1370055535}
   - component: {fileID: 1370055534}
-  - component: {fileID: 1370055533}
-  - component: {fileID: 1370055532}
-  - component: {fileID: 1370055531}
+  - component: {fileID: 1370055538}
+  - component: {fileID: 1370055537}
   m_Layer: 0
   m_Name: Plato
   m_TagString: Untagged
@@ -9753,52 +9763,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1528906920}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1370055531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370055529}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1bb274dee79224299bf2291ecb99a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
---- !u!114 &1370055532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370055529}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab7c8bbdf4804e4418a41466899b3e13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabIngrediente: {fileID: 1528906912}
-  tiempoRespawn: 1.5
-  activo: 1
-  ocultarSiEstaBloqueado: 1
-  posicionOriginal: {x: 0, y: 0, z: 0}
-  rotacionOriginal: {x: 0, y: 0, z: 0, w: 0}
-  escalaOriginal: {x: 0, y: 0, z: 0}
-  inicializadoExternamente: 0
---- !u!114 &1370055533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370055529}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1bb274dee79224299bf2291ecb99a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
 --- !u!65 &1370055534
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9870,6 +9834,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370055529}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1370055537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370055529}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab7c8bbdf4804e4418a41466899b3e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabIngrediente: {fileID: 1370055529}
+  tiempoRespawn: 1.5
+  activo: 1
+  ocultarSiEstaBloqueado: 1
+  posicionOriginal: {x: 0, y: 0, z: 0}
+  rotacionOriginal: {x: 0, y: 0, z: 0, w: 0}
+  escalaOriginal: {x: 0, y: 0, z: 0}
+  inicializadoExternamente: 0
+--- !u!114 &1370055538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370055529}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1bb274dee79224299bf2291ecb99a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
 --- !u!1001 &1377421239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11043,7 +11040,7 @@ GameObject:
   - component: {fileID: 1577749830}
   - component: {fileID: 1577749835}
   m_Layer: 0
-  m_Name: Comprapepinos
+  m_Name: compraLechuga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12073,7 +12070,7 @@ MonoBehaviour:
   requiereCoccion: 0
   tiempoParaCocinar: 8
   tiempoParaQuemar: 14
-  modeloNormal: {fileID: 0}
+  modeloNormal: {fileID: 389640415}
   modeloCrudo: {fileID: 0}
   modeloCocinado: {fileID: 0}
   modeloQuemado: {fileID: 0}
@@ -12551,6 +12548,8 @@ GameObject:
   - component: {fileID: 1749725340}
   - component: {fileID: 1749725339}
   - component: {fileID: 1749725341}
+  - component: {fileID: 1749725343}
+  - component: {fileID: 1749725342}
   m_Layer: 0
   m_Name: Plato
   m_TagString: Untagged
@@ -12656,7 +12655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7c8bbdf4804e4418a41466899b3e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabIngrediente: {fileID: 535349546}
+  prefabIngrediente: {fileID: 1749725334}
   tiempoRespawn: 1.5
   activo: 1
   ocultarSiEstaBloqueado: 1
@@ -12685,6 +12684,39 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749725334}
   m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1bb274dee79224299bf2291ecb99a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+--- !u!114 &1749725342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749725334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab7c8bbdf4804e4418a41466899b3e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabIngrediente: {fileID: 0}
+  tiempoRespawn: 1.5
+  activo: 1
+  ocultarSiEstaBloqueado: 1
+  posicionOriginal: {x: 0, y: 0, z: 0}
+  rotacionOriginal: {x: 0, y: 0, z: 0, w: 0}
+  escalaOriginal: {x: 0, y: 0, z: 0}
+  inicializadoExternamente: 0
+--- !u!114 &1749725343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749725334}
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c1bb274dee79224299bf2291ecb99a1, type: 3}
   m_Name: 
@@ -12992,6 +13024,8 @@ GameObject:
   - component: {fileID: 1854303437}
   - component: {fileID: 1854303436}
   - component: {fileID: 1854303435}
+  - component: {fileID: 1854303442}
+  - component: {fileID: 1854303441}
   m_Layer: 0
   m_Name: Plato
   m_TagString: Untagged
@@ -13039,7 +13073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7c8bbdf4804e4418a41466899b3e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabIngrediente: {fileID: 16525752}
+  prefabIngrediente: {fileID: 1854303433}
   tiempoRespawn: 1.5
   activo: 1
   ocultarSiEstaBloqueado: 1
@@ -13131,6 +13165,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854303433}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1854303441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854303433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab7c8bbdf4804e4418a41466899b3e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabIngrediente: {fileID: 0}
+  tiempoRespawn: 1.5
+  activo: 1
+  ocultarSiEstaBloqueado: 1
+  posicionOriginal: {x: 0, y: 0, z: 0}
+  rotacionOriginal: {x: 0, y: 0, z: 0, w: 0}
+  escalaOriginal: {x: 0, y: 0, z: 0}
+  inicializadoExternamente: 0
+--- !u!114 &1854303442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854303433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1bb274dee79224299bf2291ecb99a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
 --- !u!1 &1857149286 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6880113621176636277, guid: f8ebbd6a44a7dba44a730c8063ac443c, type: 3}
