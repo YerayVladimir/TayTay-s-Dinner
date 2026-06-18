@@ -10429,6 +10429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554d70c0d82f39141920a175c8b6eac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiPool: {fileID: 2075885760}
   prefabPedidoUI: {fileID: 5026472308372287588, guid: 15b30ed175633fb4fbc57c5bb1c974af, type: 3}
   contenedorPedidos: {fileID: 1744594461}
   maxPedidosEnPantalla: 3
@@ -12129,7 +12130,7 @@ MonoBehaviour:
   - {fileID: 819486197}
   - {fileID: 1822255748}
   - {fileID: 1243859964}
-  tiempoEntreClientes: 5
+  tiempoEntreClientes: 45
   fila: []
 --- !u!4 &1721240425
 Transform:
@@ -15120,7 +15121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 5026472308372287588, guid: 15b30ed175633fb4fbc57c5bb1c974af, type: 3}
-  contenedor: {fileID: 0}
+  contenedor: {fileID: 1744594461}
   "tama\xF1oInicial": 5
 --- !u!4 &2075885761
 Transform:
